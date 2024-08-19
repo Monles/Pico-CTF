@@ -1,2 +1,5 @@
 # Work out in Pico CTF gym
-- (Link to Pico CTF)[https://picoctf.org/]
+- [Pico CTF](https://picoctf.org/)
+
+# More Resources
+- [Exploit Education](http://exploit.education/phoenix/)
