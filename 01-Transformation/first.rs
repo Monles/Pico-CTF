@@ -12,6 +12,15 @@ fn encode_ascii_text(text: &str) -> String {
     encoded_text
 }
 
+fn decode_ascii_text(encoded_text: &str) -> String {
+    let bytes = (0..encoded_text.len())
+        .step_by(2)
+        .map(|i| u8::from_str_radix(&encoded_text[i..i + 2], 16).unwrap())
+        .collect::<Vec<u8>>();
+
+    String::from_utf8_lossy(&bytes).into_owned()
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -24,4 +33,7 @@ fn main() {
 
     let encoded_txt = encode_ascii_text(&contents);
     println!("Encoded text:\n{encoded_txt}");
+
+    let decoded_txt = decode_ascii_text(&encoded_txt);
+    println!("Decoded text:\n{:?}", decoded_txt);
 }
